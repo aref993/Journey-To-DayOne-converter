@@ -6,7 +6,6 @@ from time import strftime
 from datetime import datetime
 import json
 import os,glob
-import os
 from yattag import Doc, indent
 import shutil
 from sys import stdout
