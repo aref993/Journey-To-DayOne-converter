@@ -24,7 +24,7 @@ this tool allow you to export journey entries to DayOne.
 
 * Run `python JournyTools.py` in a terminal window
 
-* data will be exported at `./journey.dayone/`
+* data will be exported at `./journal.dayone/`
 
 * move exported folder to `Dropbox/Apps/DayOne/`
 
