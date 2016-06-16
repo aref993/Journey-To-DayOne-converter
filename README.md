@@ -22,7 +22,7 @@ this tool allow you to export journey entries to DayOne.
 
 * move `JourneyTools.py` and `journey` folder to same location
 
-* excute `JournyTools.py`
+* Run `python JournyTools.py` in a terminal window
 
 * data will be exported at `./journey.dayone/`
 
