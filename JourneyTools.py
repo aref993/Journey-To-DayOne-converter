@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+#developed by aref993
 from __future__ import unicode_literals
 import uuid
 from time import strftime
