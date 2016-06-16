@@ -9,7 +9,6 @@ import os,glob
 import os
 from yattag import Doc, indent
 import shutil
-import xmltodict
 from sys import stdout
 def getuuid():
 	uu=str(uuid.uuid4())
