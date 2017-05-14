@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-#developed by aref993
+# developed by aref993
+# adapted by DrewMcCal
 from __future__ import unicode_literals
 import uuid
 from time import strftime
@@ -30,7 +31,7 @@ def check_dirs(path):
 		os.makedirs('./journal.dayone/entries/')
 	if not os.path.exists('./journal.dayone/photos/'):
 		os.makedirs('./journal.dayone/photos/')
-	print 'directory creation done.'
+	print('directory creation done.')
 def deserialize_json(allentries):
 	loaded=json.loads(allentries)
 	return loaded
@@ -52,7 +53,7 @@ def convert_to_xml(entry):
 			with tag('key'):
 				text('Modified Date')
 			with tag('integer'):
-				text(str(entry["date_modified"]/1000))
+				text(str(int(entry["date_modified"]/1000)))
 			with tag('key'):
 				text('Creator')
 			with tag('dict'):
@@ -114,7 +115,7 @@ def convert_to_xml(entry):
 			with tag('key'):
 				text('Time Zone')
 			with tag('string'):
-				text('Iran Standard Time')
+				text('America/New_York')
 			with tag('key'):
 				text('Tags')
 			with tag('array'):
@@ -125,7 +126,7 @@ def convert_to_xml(entry):
 							text(anytag)
 				else:
 					text(' ')
-				
+
 	result = indent(doc.getvalue(),indentation = ' '*4,newline = '\r\n')
 	return result
 def convert_main():
@@ -133,7 +134,7 @@ def convert_main():
 	alljsons=[]
 	alljsons=read_specific_files("./journey/","json")
 	os.chdir(real_path)
-	print 'we found %d entries to export' %(len(alljsons))
+	print('we found %d entries to export' %(len(alljsons)))
 	check_dirs(real_path)
 	i=0
 	for anyjson in alljsons:
@@ -145,7 +146,7 @@ def convert_main():
 		suuid=alluuids[i]
 		i=i+1
 		os.chdir(real_path+"/journal.dayone/entries/")
-		myfile = open(str(suuid)+".doentry","w")
+		myfile = open(str(suuid)+".doentry","wb")
 		myfile.write(xmltmp.encode('utf-8'))
 		myfile.close()
 		if len(dj['photos'])>0:
@@ -155,5 +156,5 @@ def convert_main():
 		stdout.write("\r%d entry imported successfully" % i)
 		stdout.flush()
 
-alluuids=[]	
+alluuids=[]
 convert_main()
